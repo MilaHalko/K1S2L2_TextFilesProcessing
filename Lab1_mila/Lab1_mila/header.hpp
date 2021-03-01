@@ -6,4 +6,4 @@
 #include <string>
 using namespace std;
 
-
+const int n = 20;
