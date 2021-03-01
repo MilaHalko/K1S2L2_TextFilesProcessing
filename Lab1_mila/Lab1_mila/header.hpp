@@ -14,3 +14,4 @@ struct team
 };
 
 void readFile(string path, string* arr);
+void processArr(string* arr, team res[]);

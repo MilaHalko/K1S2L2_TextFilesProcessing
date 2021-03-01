@@ -31,3 +31,12 @@ void readFile(string path, string* arr)     //  open file and write its
     }
     fin.close();
 }
+
+void processArr(string* arr, team res[])
+{
+    for (int i = 0; i < line; i++)
+    {
+        res[i].name = findTeam();
+        res[i].score = findScore();
+    }
+}

@@ -8,6 +8,8 @@ int main()
     readFile("premier_league1.csv", arr);
     readFile("premier_league2.csv", arr);
 
+    team res[n];
+    processArr(arr, res);
 
     // output
     for (int i = 0; i < n; i++)
