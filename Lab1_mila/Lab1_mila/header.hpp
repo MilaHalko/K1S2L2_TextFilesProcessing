@@ -7,3 +7,5 @@
 using namespace std;
 
 const int n = 20;
+
+void readFile(string path, string* arr);
