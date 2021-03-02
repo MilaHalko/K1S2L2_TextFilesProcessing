@@ -5,14 +5,13 @@
 #include <string>
 using namespace std;
 
-const int n = 20;  // clubs' quantity
-
 struct team
 {
 	string club;
 	int score = 0;
 };
 
+int ClubsQuantity(string path);              // returns clubs' quantity
 void readFile(string path, string* arr);     // open file -> check errors -> move text to 'arr'
 void processArr(string* arr, team res[]);    // create the structure (club, score)
 string findClub(string str);                 // returns club's name from 'arr[i]'

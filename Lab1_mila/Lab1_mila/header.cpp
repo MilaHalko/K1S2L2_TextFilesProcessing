@@ -1,6 +1,30 @@
 #include "header.hpp"
 
 int line = 0;   // current line number
+extern int n;   // clubs' quantity
+
+int ClubsQuantity(string path)               // open file -> check errors -> read 1st line -> return number (clubs' quantity)
+{
+    int quantity = 0;
+    
+    ifstream fin;
+    fin.open(path);
+    
+    if (!fin.is_open())
+    {
+        cout << "Unable to open the file!" << endl;
+    }
+    else
+    {
+        string str;
+        getline(fin, str);
+        quantity = stoi(str);
+    }
+    
+    fin.close();
+    
+    return quantity;
+}
 
 void readFile(string path, string* arr)       //  open file -> check errors -> move text to 'arr'
 {
@@ -29,7 +53,6 @@ void readFile(string path, string* arr)       //  open file -> check errors -> m
 
     }
     fin.close();
- 
 }
 
 void processArr(string* arr, team res[])     // create the structure (club, score)
