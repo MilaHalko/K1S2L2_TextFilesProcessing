@@ -29,6 +29,7 @@ void readFile(string path, string* arr)       //  open file -> check errors -> m
 
     }
     fin.close();
+ 
 }
 
 void processArr(string* arr, team res[])     // create the structure (club, score)
