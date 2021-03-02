@@ -11,6 +11,8 @@ int main()
     team res[n];
     processArr(arr, res);
 
+    sortRes(res);
+
     // output
     for (int i = 0; i < n; i++)
     {
