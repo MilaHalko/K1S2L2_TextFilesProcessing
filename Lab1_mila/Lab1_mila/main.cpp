@@ -12,7 +12,7 @@ int main()
     readFile("premier_league2.csv", arr);
     
     // Creating the structure with values "club" and "score" + Filling values
-    team res[n];
+    team* res = new team[n];
     processArr(arr, res);
 
     
@@ -22,6 +22,6 @@ int main()
     
     // Outup of final result
     FinalFile(res);
-    
+    delete[] res, arr;
     return 0;
 }
