@@ -2,8 +2,8 @@
 
 int line = 0;   // current line number
 
-void readFile(string path, string* arr)     //  open file and write its 
-{                                           //  content to array of strings
+void readFile(string path, string* arr)       //  open file -> check errors -> move text to 'arr'
+{
     ifstream fin;
     fin.open(path);
 
@@ -31,54 +31,54 @@ void readFile(string path, string* arr)     //  open file and write its
     fin.close();
 }
 
-void processArr(string* arr, team res[])
+void processArr(string* arr, team res[])     // create the structure (club, score)
 {
     for (int i = 0; i < line; i++)
     {
-        res[i].club = findClub(arr[i]);
-        res[i].score = findScore(arr[i]);
+        res[i].club = findClub(arr[i]);      // returns club's name
+        res[i].score = findScore(arr[i]);    // returns club's score
     }
 }
 
-string findClub(string club)
+string findClub(string str)                  // returns club's name from 'arr[i]'
 {
-    int pos;               // позиция запятой после названия клуба
-    pos = club.find(',');
-    club.erase(pos);
+    int pos;                                 // first comma's position (written after club's name)
+    pos = str.find(',');
+    str.erase(pos);
     
-    return club;
+    return str;
 }
 
-int findScore(string score)
+int findScore(string str)                    // returns clubs's total score from 'arr[i]'
 {
-    int pos = 0,          // позиция ":"
-        n1, n2,           // счет команды(n1), противника(n2z)
-        result = 0;       // количество баллов полученых за игру
+    int pos = 0,                             // position of ":"
+        n1, n2,                              // points of: current team(n1), rival team(n2)
+        result = 0;                          // total score
 
-    while (score.find(':') != string::npos)
+    while (str.find(':') != string::npos)
     {
-        pos = score.find(':');
+        pos = str.find(':');
 
-        n1 = stoi(score.substr(pos - 1));
-        n2 = stoi(score.substr(pos + 1));
+        n1 = stoi(str.substr(pos - 1));
+        n2 = stoi(str.substr(pos + 1));
 
         if (n1 > n2) result += 3;
         else
         {
             if (n1 == n2) result += 1;
         }
-        score.erase(score.begin() + pos);
+        str.erase(str.begin() + pos);
     }
 
     return result;
 }
 
-void sortRes(team res[])
+void sortRes(team res[])                     // selection sort of res[]
 {
     for (int i = 0; i < n - 1; i++)
     {
-        int max = res[i].score;
-        int index = i;
+        int max = res[i].score;              // the biggest score
+        int index = i;                       // score's index in rez[]
         
         for (int j = i; j < n; j++)
         {
@@ -89,23 +89,11 @@ void sortRes(team res[])
             }
         }
         
-        swap(res[i], res[index]);
+        swap(res[i], res[index]);            // invert max element with current
     }
 }
 
-int F_numb_of_clubs(string file)
-{
-    int number;  // число команд
-    string s;    // вспомогательная строка
-    ifstream fin(file);
-    
-    getline(fin, s);
-    number = stoi(s);
-    
-    return number;
-}
-
-void FinalFile(team res[])
+void FinalFile(team res[])                   // create file -> check errors -> output in file using csv format
 {
     ofstream fout;
     fout.open("FinalResults.csv");
