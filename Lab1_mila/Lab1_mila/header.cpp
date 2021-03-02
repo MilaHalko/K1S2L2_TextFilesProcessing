@@ -37,7 +37,7 @@ void processArr(string* arr, team res[])
     for (int i = 0; i < line; i++)
     {
         res[i].name = findTeam(arr[i]);
-        //res[i].score = findScore();
+        res[i].score = findScore(arr[i]);
     }
 }
 
@@ -49,4 +49,28 @@ string findTeam(string str)
     temp = str.substr(0, pos);
 
     return temp;
+}
+
+int findScore(string str)
+{
+    int pos = 0,
+        n1, n2,
+        result = 0;
+
+    while (str.find(':') != string::npos)
+    {
+        pos = str.find(':');
+
+        n1 = stoi(str.substr(pos - 1));
+        n2 = stoi(str.substr(pos + 1));
+
+        if (n1 > n2) result += 3;
+        else
+        {
+            if (n1 == n2) result += 1;
+        }
+        str.erase(str.begin() + pos);
+    }
+
+    return result;
 }

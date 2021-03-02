@@ -16,3 +16,4 @@ struct team
 void readFile(string path, string* arr);
 void processArr(string* arr, team res[]);
 string findTeam(string str);
+int findScore(string str);
