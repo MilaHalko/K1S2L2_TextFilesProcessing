@@ -8,7 +8,7 @@ int main()
     readFile("premier_league1.csv", arr);
     readFile("premier_league2.csv", arr);
 
-    // Создаем team(struct) со значениями name - "Клуб", score - "Очки" + Заполнение значениями
+    // Создаем team(struct) со значениями club и score + Заполнение значениями
     team res[n];
     processArr(arr, res);
 
@@ -16,10 +16,7 @@ int main()
     sortRes(res);
 
     // Вывод конечного результата
-    for (int i = 0; i < n; i++)
-    {
-        cout << res[i].name << " " << res[i].score << endl;
-    }
+    FinalFile(res);
     
     return 0;
 }

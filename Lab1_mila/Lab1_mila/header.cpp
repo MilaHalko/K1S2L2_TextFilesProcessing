@@ -35,7 +35,7 @@ void processArr(string* arr, team res[])
 {
     for (int i = 0; i < line; i++)
     {
-        res[i].name = findClub(arr[i]);
+        res[i].club = findClub(arr[i]);
         res[i].score = findScore(arr[i]);
     }
 }
@@ -103,4 +103,23 @@ int F_numb_of_clubs(string file)
     number = stoi(s);
     
     return number;
+}
+
+void FinalFile(team res[])
+{
+    ofstream fout;
+    fout.open("FinalResults.csv");
+    
+    if(!fout.is_open())
+    {
+        cout << "Unable to create a file of results!" << endl;
+    }
+    else
+    {
+        for(int i = 0; i < n; i++){
+            fout << res[i].club << ";" << res[i].score << endl;
+        }
+    }
+    
+    fout.close();
 }
