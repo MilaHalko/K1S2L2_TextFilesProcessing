@@ -30,6 +30,7 @@ void readFile(string path, string* arr)     //  open file and write its
 
     }
     fin.close();
+ 
 }
 
 void processArr(string* arr, team res[])
@@ -91,4 +92,24 @@ void sortRes(team res[])
             }
         }
     }
+}
+
+void writeFile(string path, team res[])
+{
+    ofstream fout;
+    fout.open(path);
+
+    if (!fout.is_open())
+    {
+        cout << "Error!" << endl;
+    }
+    else
+    {
+        for (int i = 0; i < n; i++)
+        {
+            fout << res[i].name << "  " << res[i].score << "\n";
+        }
+    }
+
+    fout.close();
 }

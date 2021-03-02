@@ -13,6 +13,8 @@ int main()
 
     sortRes(res);
 
+    writeFile("results.csv", res);
+
     // output
     for (int i = 0; i < n; i++)
     {

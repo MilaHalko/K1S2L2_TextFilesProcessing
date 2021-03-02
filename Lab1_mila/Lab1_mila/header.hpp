@@ -18,3 +18,4 @@ void processArr(string* arr, team res[]);
 string findTeam(string str);
 int findScore(string str);
 void sortRes(team res[]);
+void writeFile(string path, team res[]);
