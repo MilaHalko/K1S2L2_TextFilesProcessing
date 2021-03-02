@@ -36,7 +36,17 @@ void processArr(string* arr, team res[])
 {
     for (int i = 0; i < line; i++)
     {
-        res[i].name = findTeam();
-        res[i].score = findScore();
+        res[i].name = findTeam(arr[i]);
+        //res[i].score = findScore();
     }
+}
+
+string findTeam(string str)
+{
+    string temp;
+
+    int pos = str.find(',');
+    temp = str.substr(0, pos);
+
+    return temp;
 }
