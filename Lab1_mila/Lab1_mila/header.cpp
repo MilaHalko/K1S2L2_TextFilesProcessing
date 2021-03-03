@@ -138,7 +138,6 @@ void FinalFile(team res[])                   // create file -> check errors -> o
                 char num[16];
                 sprintf_s(num, "%x", res[i].score);
 
-                cout << num;
                 fout << res[i].club << ";" << num << endl;
             }
         }
@@ -164,10 +163,6 @@ void FinalFile(team res[])                   // create file -> check errors -> o
     fout.close();
 }
 
-string ToHex(int num)               // dec to hex
-{
-     
-}
 
 vector<string> input(string path)
 {
