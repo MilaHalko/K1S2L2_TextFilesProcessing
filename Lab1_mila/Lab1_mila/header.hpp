@@ -3,6 +3,9 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <direct.h>
+#include <io.h>
+#include <vector>
 using namespace std;
 
 struct team
@@ -18,3 +21,4 @@ string findClub(string str);                 // returns club's name from 'arr[i]
 int findScore(string str);                   // returns clubs's total score from 'arr[i]'
 void sortRes(team res[]);                    // selection sort of res[]
 void FinalFile(team res[]);                  // create file -> check errors -> output in file using csv format
+vector<const char*> input();

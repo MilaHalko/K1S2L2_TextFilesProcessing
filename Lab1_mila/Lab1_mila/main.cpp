@@ -5,6 +5,10 @@ int n = ClubsQuantity("premier_league1.csv") + ClubsQuantity("premier_league2.cs
 
 int main() 
 {
+    vector<const char*> fileNames = input();
+
+
+
     string* arr = new string[n];  // stores text of 2 orinal files
     
     // Moving text from files csv into arr
@@ -15,13 +19,13 @@ int main()
     team* res = new team[n];
     processArr(arr, res);
 
-    
     // Selection sort in descending order
     sortRes(res);
 
-    
     // Outup of final result
     FinalFile(res);
+
     delete[] res, arr;
+    system("pause");
     return 0;
 }
