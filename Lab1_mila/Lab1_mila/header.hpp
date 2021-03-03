@@ -21,4 +21,5 @@ string findClub(string str);                 // returns club's name from 'arr[i]
 int findScore(string str);                   // returns clubs's total score from 'arr[i]'
 void sortRes(team res[]);                    // selection sort of res[]
 void FinalFile(team res[]);                  // create file -> check errors -> output in file using csv format
+string ToHex(int res[i].score);              // dec to hex
 vector<string> input(string path);			 // read file names from the folder

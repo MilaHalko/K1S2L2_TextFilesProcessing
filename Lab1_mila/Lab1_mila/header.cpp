@@ -128,12 +128,29 @@ void FinalFile(team res[])                   // create file -> check errors -> o
     }
     else
     {
+        char ch;
+        
+        do {
+        cout << "Write '+' for oct:";
+        cin >> ch;
+        } while (ch != '+');
+        
+        for(int i = 0; i < n; i++){
+            fout << res[i].club << ";" << oct << res[i].score << endl;
+        }
+        
+    }
+        /*
         for(int i = 0; i < n; i++){
             fout << res[i].club << ";" << res[i].score << endl;
-        }
-    }
+        }*/
     
     fout.close();
+}
+
+string ToHex(int num)               // dec to hex
+{
+     
 }
 
 vector<string> input(string path)
