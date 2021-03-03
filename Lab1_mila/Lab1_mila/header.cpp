@@ -128,15 +128,31 @@ void FinalFile(team res[])                   // create file -> check errors -> o
     }
     else
     {
-        char ch;
         
-        do {
-        cout << "Write '+' for oct:";
-        cin >> ch;
-        } while (ch != '+');
-        
-        for(int i = 0; i < n; i++){
-            fout << res[i].club << ";" << oct << res[i].score << endl;
+        cout << " enter +/- : ";
+        char ch; cin >> ch;
+        if (ch == '-')
+        {
+            for (int i = 0; i < n; i++)
+            {
+                char num[16];
+                sprintf_s(num, "%x", res[i].score);
+
+                cout << num;
+                fout << res[i].club << ";" << num << endl;
+            }
+        }
+        else {
+            if (ch == '+'){
+                for(int i = 0; i < n; i++){
+                    fout << res[i].club << ";" << oct << res[i].score << endl;
+                }
+            }
+            else{
+                for(int i = 0; i < n; i++){
+                    fout << res[i].club << ";" << res[i].score << endl;
+                }
+            }
         }
         
     }
