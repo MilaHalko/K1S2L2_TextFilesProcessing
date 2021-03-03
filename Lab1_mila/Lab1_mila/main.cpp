@@ -1,19 +1,31 @@
 #include "header.hpp"
 
-// Clubs' quantity
-int n = ClubsQuantity("premier_league1.csv") + ClubsQuantity("premier_league2.csv");
+int n = 0;
 
 int main() 
 {
-    vector<const char*> fileNames = input();
+    // path to the folder
+    string path;
+    cout << "Enter path to the folder that contains .csv files: \n";
+    cin >> path;
 
+    // read files from the folder
+    vector<string> fileNames = input(path);
 
+    // Clubs' quantity
+    path += "\\";
+    for (int size = fileNames.size(), i = 0; i < size; i++)
+    {
+        n += ClubsQuantity(path + fileNames[i]);
+    }
 
-    string* arr = new string[n];  // stores text of 2 orinal files
+    string* arr = new string[n];  // will store text of original files
     
     // Moving text from files csv into arr
-    readFile("premier_league1.csv", arr);
-    readFile("premier_league2.csv", arr);
+    for (int size = fileNames.size(), i = 0; i < size; i++)
+    {
+        readFile(path + fileNames[i], arr);
+    }
     
     // Creating the structure with values "club" and "score" + Filling values
     team* res = new team[n];

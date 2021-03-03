@@ -136,14 +136,10 @@ void FinalFile(team res[])                   // create file -> check errors -> o
     fout.close();
 }
 
-vector<const char*> input()
+vector<string> input(string path)
 {
-    string path;
-    cout << "Enter path that contains .csv files: \n";
-    cin >> path;
-
-    vector<const char*> arr; 
-    path += "\\*.csv";
+    vector<string> arr; 
+    path += "\\*.csv";                  // form mask
     const char* path_1 = path.c_str();
 
     _finddata_t data;
@@ -155,10 +151,13 @@ vector<const char*> input()
 
     _findclose(handle);
 
+   
+    cout << "=============================" << "\nIn this folder: \n";  // print file names
     for (int size = arr.size(), i = 0; i < size; i++)
     {
         cout << arr[i] << endl;
     }
+    cout << endl;
 
     return arr;
 }
