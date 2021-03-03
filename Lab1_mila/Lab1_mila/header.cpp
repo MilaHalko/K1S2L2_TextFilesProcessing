@@ -129,7 +129,7 @@ void FinalFile(team res[])                   // create file -> check errors -> o
     else
     {
         
-        cout << " enter +/- : ";
+        cout << " enter '+' (for oct) or '-' (for hex) : ";
         char ch; cin >> ch;
         if (ch == '-')
         {
