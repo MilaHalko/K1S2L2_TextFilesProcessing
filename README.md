@@ -14,7 +14,7 @@ Chelsea FC,3:0,0:0,1:0,0:2,4:1,3:1,0:3,1:5,0:2,4:1
 
 
 # Інше
-#№ Assignment #2. Text files processing
+# Assignment #2. Text files processing
 
 Перед виконанням уважно прочитайте [цю інструкцію до виконання всіх лаб](general_conditions.md) і виконайте, що там написано.
 
